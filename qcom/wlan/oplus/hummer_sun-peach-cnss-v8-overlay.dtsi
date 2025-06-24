@@ -26,3 +26,7 @@
                 bdf_name = "bdwlan1.elf";
     };
 };
+
+&wlan_direct_link {
+	status = "disabled";
+};
