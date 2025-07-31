@@ -500,7 +500,6 @@
 				bias-disable;
 			};
 		};
-
 		qupv3_se2_spi_sleep: qupv3_se2_spi_sleep {
 			mux {
 				pins = "gpio52", "gpio53",
@@ -887,14 +886,20 @@
 
 		qupv3_se6_spi_sleep: qupv3_se6_spi_sleep {
 			mux {
+				/*
 				pins = "gpio40", "gpio54",
 					"gpio42", "gpio55";
+				*/
+				pins = "gpio54";
 				function = "gpio";
 			};
 
 			config {
+				/*
 				pins = "gpio40", "gpio54",
 					"gpio42", "gpio55";
+				*/
+				pins = "gpio54";
 				drive-strength = <2>;
 				bias-disable;
 			};

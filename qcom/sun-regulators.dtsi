@@ -543,7 +543,7 @@
 			regulator-name = "pm_humu_l12";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
 			regulator-min-microvolt = <1200000>;
-			regulator-max-microvolt = <1800000>;
+			regulator-max-microvolt = <1900000>;
 			qcom,init-voltage = <1800000>;
 			qcom,init-mode = <RPMH_REGULATOR_MODE_HPM>;
 			qcom,proxy-consumer-enable;
@@ -1027,9 +1027,9 @@
 		L1I: pm_v8i_l1: regulator-pm-v8i-l1 {
 			regulator-name = "pm_v8i_l1";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
-			regulator-min-microvolt = <1200000>;
+			regulator-min-microvolt = <1100000>;
 			regulator-max-microvolt = <1200000>;
-			qcom,init-voltage = <1200000>;
+			qcom,init-voltage = <1100000>;
 			qcom,init-mode = <RPMH_REGULATOR_MODE_HPM>;
 		};
 	};
@@ -1368,9 +1368,9 @@
 		L6M: pm8010m_l6: regulator-pm8010m-l6 {
 			regulator-name = "pm8010m_l6";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
-			regulator-min-microvolt = <2800000>;
-			regulator-max-microvolt = <2800000>;
-			qcom,init-voltage = <2800000>;
+			regulator-min-microvolt = <1800000>;
+			regulator-max-microvolt = <1800000>;
+			qcom,init-voltage = <1800000>;
 		};
 	};
 
@@ -1381,9 +1381,9 @@
 		L7M: pm8010m_l7: regulator-pm8010m-l7 {
 			regulator-name = "pm8010m_l7";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
-			regulator-min-microvolt = <2960000>;
+			regulator-min-microvolt = <2800000>;
 			regulator-max-microvolt = <2960000>;
-			qcom,init-voltage = <2960000>;
+			qcom,init-voltage = <2800000>;
 		};
 	};
 
@@ -1399,9 +1399,9 @@
 		L1N: pm8010n_l1: regulator-pm8010n-l1 {
 			regulator-name = "pm8010n_l1";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
-			regulator-min-microvolt = <1104000>;
+			regulator-min-microvolt = <800000>;
 			regulator-max-microvolt = <1104000>;
-			qcom,init-voltage = <1104000>;
+			qcom,init-voltage = <800000>;
 			qcom,init-mode = <RPMH_REGULATOR_MODE_HPM>;
 		};
 	};
@@ -1418,9 +1418,9 @@
 		L2N: pm8010n_l2: regulator-pm8010n-l2 {
 			regulator-name = "pm8010n_l2";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
-			regulator-min-microvolt = <1104000>;
+			regulator-min-microvolt = <800000>;
 			regulator-max-microvolt = <1104000>;
-			qcom,init-voltage = <1104000>;
+			qcom,init-voltage = <800000>;
 			qcom,init-mode = <RPMH_REGULATOR_MODE_HPM>;
 		};
 	};
@@ -1432,9 +1432,9 @@
 		L3N: pm8010n_l3: regulator-pm8010n-l3 {
 			regulator-name = "pm8010n_l3";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
-			regulator-min-microvolt = <1800000>;
-			regulator-max-microvolt = <1800000>;
-			qcom,init-voltage = <1800000>;
+			regulator-min-microvolt = <2800000>;
+			regulator-max-microvolt = <2800000>;
+			qcom,init-voltage = <2800000>;
 		};
 	};
 
@@ -1445,9 +1445,9 @@
 		L4N: pm8010n_l4: regulator-pm8010n-l4 {
 			regulator-name = "pm8010n_l4";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
-			regulator-min-microvolt = <1800000>;
-			regulator-max-microvolt = <1800000>;
-			qcom,init-voltage = <1800000>;
+			regulator-min-microvolt = <2800000>;
+			regulator-max-microvolt = <2800000>;
+			qcom,init-voltage = <2800000>;
 		};
 	};
 
@@ -1459,7 +1459,7 @@
 			regulator-name = "pm8010n_l5";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
 			regulator-min-microvolt = <2800000>;
-			regulator-max-microvolt = <2800000>;
+			regulator-max-microvolt = <3304000>;
 			qcom,init-voltage = <2800000>;
 		};
 	};
@@ -1471,9 +1471,9 @@
 		L6N: pm8010n_l6: regulator-pm8010n-l6 {
 			regulator-name = "pm8010n_l6";
 			qcom,set = <RPMH_REGULATOR_SET_ALL>;
-			regulator-min-microvolt = <2800000>;
-			regulator-max-microvolt = <2800000>;
-			qcom,init-voltage = <2800000>;
+			regulator-min-microvolt = <1800000>;
+			regulator-max-microvolt = <1800000>;
+			qcom,init-voltage = <1800000>;
 		};
 	};
 

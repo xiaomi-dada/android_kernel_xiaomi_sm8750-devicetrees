@@ -133,6 +133,6 @@
 
 	qcom,uses_level_shifter;
 
-	status = "ok";
+	status = "disabled";
 };
 

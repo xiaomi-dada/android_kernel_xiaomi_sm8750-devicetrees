@@ -101,23 +101,7 @@
 };
 
 &sdhc_2 {
-	vdd-supply = <&L13B>;
-	qcom,vdd-voltage-level = <2960000 2960000>;
-	qcom,vdd-current-level = <0 976310>;
-
-	vdd-io-supply = <&L23B>;
-	qcom,vdd-io-voltage-level = <1800000 2960000>;
-	qcom,vdd-io-current-level = <0 5830>;
-
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&sdc2_on>;
-	pinctrl-1 = <&sdc2_off>;
-
-	cd-gpios = <&tlmm 39 GPIO_ACTIVE_LOW>;
-
-	qcom,uses_level_shifter;
-
-	status = "ok";
+	status = "disabled";
 };
 
 &thermal_zones {

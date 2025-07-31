@@ -9,10 +9,12 @@
 #include <dt-bindings/spmi/spmi.h>
 
 &sdhc_2 {
+	// #ifdef OPLUS_SENSOR_FEATURE
+	/*
 	vdd-supply = <&L13B>;
 	qcom,vdd-voltage-level = <2960000 2960000>;
 	qcom,vdd-current-level = <0 976270>;
-
+	*/
 	vdd-io-supply = <&L23B>;
 	qcom,vdd-io-voltage-level = <1800000 2960000>;
 	qcom,vdd-io-current-level = <0 5830>;
@@ -25,7 +27,7 @@
 
 	qcom,uses_level_shifter;
 
-	status = "ok";
+	status = "disable";
 };
 
 &wcd_usbss {

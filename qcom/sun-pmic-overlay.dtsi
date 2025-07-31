@@ -55,8 +55,8 @@
 };
 
 &pm8550_gpios {
-	key_vol_up {
-		key_vol_up_default: key_vol_up_default {
+	key_vol_down {
+		key_vol_down_default: key_vol_down_default {
 			pins = "gpio6";
 			function = "normal";
 			input-enable;
@@ -359,19 +359,19 @@
 			};
 
 			trip_config0: trip-config0 {
-				temperature = <78000>;
+				temperature = <88000>;
 				hysteresis = <8000>;
 				type = "passive";
 			};
 
 			trip_config1: trip-config1 {
-				temperature = <80000>;
+				temperature = <90000>;
 				hysteresis = <10000>;
 				type = "passive";
 			};
 
 			shutdown-trip {
-				temperature = <90000>;
+				temperature = <100000>;
 				hysteresis = <0>;
 				type = "hot";
 			};

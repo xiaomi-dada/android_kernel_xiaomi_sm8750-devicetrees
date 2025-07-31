@@ -582,8 +582,8 @@
 			pinctrl-names = "default", "sleep";
 			pinctrl-0 = <&qupv3_se8_i2c_sda_active>, <&qupv3_se8_i2c_scl_active>;
 			pinctrl-1 = <&qupv3_se8_i2c_sleep>;
-			dmas = <&gpi_dma2 0 0 3 64 0>,
-				<&gpi_dma2 1 0 3 64 0>;
+			dmas = <&gpi_dma2 0 0 3 1024 0>,
+				<&gpi_dma2 1 0 3 1024 0>;
 			dma-names = "tx", "rx";
 			status = "disabled";
 		};
@@ -843,6 +843,29 @@
 			status = "disabled";
 		};
 
+		/*ICC UART Instance */
+		qupv3_se11_2uart: qcom,qup_uart@88c000 {
+			compatible = "qcom,msm-geni-serial-hs";
+			reg = <0x88c000 0x4000>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg-names = "se_phys";
+			interrupts-extended = <&intc GIC_SPI 585 IRQ_TYPE_LEVEL_HIGH>;
+			clock-names = "se-clk";
+			clocks = <&gcc GCC_QUPV3_WRAP2_S3_CLK>;
+			interconnect-names = "qup-core", "qup-config", "qup-memory";
+			interconnects =
+			<&clk_virt MASTER_QUP_CORE_2 &clk_virt SLAVE_QUP_CORE_2>,
+			<&gem_noc MASTER_APPSS_PROC &config_noc SLAVE_QUP_2>,
+			<&aggre2_noc MASTER_QUP_2 &mc_virt  SLAVE_EBI1>;
+			pinctrl-names = "default", "active", "sleep", "shutdown";
+			pinctrl-0 = <&qupv3_se11_default_tx>, <&qupv3_se11_default_rx>;
+			pinctrl-1 = <&qupv3_se11_default_tx>, <&qupv3_se11_rx_active>;
+			pinctrl-2 = <&qupv3_se11_default_tx>, <&qupv3_se11_default_rx>;
+			pinctrl-3 = <&qupv3_se11_default_tx>, <&qupv3_se11_default_rx>;
+			status = "disabled";
+		};
+
 		/* I3C Instance QUPV3_2, SE3: NAON */
 		i3c6: i3c-master@88c000 {
 			compatible = "qcom,geni-i3c";
@@ -913,8 +936,12 @@
 			<&gem_noc MASTER_APPSS_PROC &config_noc SLAVE_QUP_2>,
 			<&aggre2_noc MASTER_QUP_2 &mc_virt  SLAVE_EBI1>;
 			pinctrl-names = "default", "sleep";
+			/*#ifdef OPLUS_FEATURE_SENSOR_IR */
+			/*
 			pinctrl-0 = <&qupv3_se12_spi_mosi_active>, <&qupv3_se12_spi_miso_active>,
 				<&qupv3_se12_spi_clk_active>, <&qupv3_se12_spi_cs_active>;
+			*/
+			pinctrl-0 = <&qupv3_se12_spi_mosi_active>;
 			pinctrl-1 = <&qupv3_se12_spi_sleep>;
 			dmas = <&gpi_dma2 0 4 1 64 0>,
 				<&gpi_dma2 1 4 1 64 0>;
@@ -1053,14 +1080,15 @@
 			status = "disabled";
 		};
 
-		/* Secondary Tounch */
-		qupv3_se15_spi: spi@89c000 {
-			compatible = "qcom,spi-geni";
+		/* rpc uart */
+		qupv3_se15_4uart: qcom,qup_uart@89c000 {
+			compatible = "qcom,msm-geni-serial-hs";
 			reg = <0x89c000 0x4000>;
 			#address-cells = <1>;
 			#size-cells = <0>;
 			reg-names = "se_phys";
-			interrupts = <GIC_SPI 462 IRQ_TYPE_LEVEL_HIGH>;
+			interrupts-extended = <&intc GIC_SPI 462 IRQ_TYPE_LEVEL_HIGH>,
+					<&tlmm 31 IRQ_TYPE_LEVEL_HIGH>;
 			clock-names = "se-clk";
 			clocks = <&gcc GCC_QUPV3_WRAP2_S7_CLK>;
 			interconnect-names = "qup-core", "qup-config", "qup-memory";
@@ -1068,15 +1096,17 @@
 			<&clk_virt MASTER_QUP_CORE_2 &clk_virt SLAVE_QUP_CORE_2>,
 			<&gem_noc MASTER_APPSS_PROC &config_noc SLAVE_QUP_2>,
 			<&aggre2_noc MASTER_QUP_2 &mc_virt  SLAVE_EBI1>;
-			pinctrl-names = "default", "sleep";
-			pinctrl-0 = <&qupv3_se15_spi_mosi_active>, <&qupv3_se15_spi_miso_active>,
-				<&qupv3_se15_spi_clk_active>, <&qupv3_se15_spi_cs_active>;
-			pinctrl-1 = <&qupv3_se15_spi_sleep>;
-			dmas = <&gpi_dma2 0 7 1 64 2>,
-				<&gpi_dma2 1 7 1 64 2>;
-			dma-names = "tx", "rx";
-			spi-max-frequency = <50000000>;
-			status = "disabled";
+			pinctrl-names = "default", "active", "sleep", "shutdown";
+    		pinctrl-0 = <&qupv3_se15_default_cts>, <&qupv3_se15_default_rts>,
+    			<&qupv3_se15_default_tx>, <&qupv3_se15_default_rx>;
+    		pinctrl-1 = <&qupv3_se15_cts>, <&qupv3_se15_rts>,
+    			<&qupv3_se15_tx>, <&qupv3_se15_rx>;
+    		pinctrl-2 = <&qupv3_se15_cts>, <&qupv3_se15_rts>,
+    			<&qupv3_se15_tx>, <&qupv3_se15_default_rx>;
+    		pinctrl-3 = <&qupv3_se15_default_cts>, <&qupv3_se15_default_rts>,
+    			<&qupv3_se15_default_tx>, <&qupv3_se15_default_rx>;
+    		qcom,wakeup-byte = <0xFD>;
+    		status = "disabled";
 		};
 
 		/* I3C Instance */

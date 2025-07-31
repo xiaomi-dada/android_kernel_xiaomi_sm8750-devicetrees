@@ -45,6 +45,112 @@
 		};
 	};
 
+	qupv3_se15_4uart_pins: qupv3_se15_4uart_pins {
+		qupv3_se15_default_cts: qupv3_se15_default_cts {
+			mux {
+				pins = "gpio28";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio28";
+				drive-strength = <2>;
+				bias-disable;
+			};
+		};
+
+		qupv3_se15_default_rts: qupv3_se15_default_rts {
+			mux {
+				pins = "gpio29";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio29";
+				drive-strength = <2>;
+				bias-pull-down;
+			};
+		};
+
+		qupv3_se15_default_tx: qupv3_se15_default_tx {
+			mux {
+				pins = "gpio30";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio30";
+				drive-strength = <2>;
+				bias-pull-up;
+			};
+		};
+
+		qupv3_se15_default_rx: qupv3_se15_default_rx {
+			mux {
+				pins = "gpio31";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio31";
+				drive-strength = <2>;
+				bias-pull-down;
+			};
+		};
+
+		qupv3_se15_cts: qupv3_se15_cts {
+			mux {
+				pins = "gpio28";
+				function = "qup2_se7_l0";
+			};
+
+			config {
+				pins = "gpio28";
+				drive-strength = <2>;
+				bias-disable;
+			};
+		};
+
+		qupv3_se15_rts: qupv3_se15_rts {
+			mux {
+				pins = "gpio29";
+				function = "qup2_se7_l1";
+			};
+
+			config {
+				pins = "gpio29";
+				drive-strength = <2>;
+				bias-pull-down;
+			};
+		};
+
+		qupv3_se15_tx: qupv3_se15_tx {
+			mux {
+				pins = "gpio30";
+				function = "qup2_se7_l2";
+			};
+
+			config {
+				pins = "gpio30";
+				drive-strength = <2>;
+				bias-pull-up;
+			};
+		};
+
+		qupv3_se15_rx: qupv3_se15_rx {
+			mux {
+				pins = "gpio31";
+				function = "qup2_se7_l3";
+			};
+
+			config {
+				pins = "gpio31";
+				drive-strength = <2>;
+				bias-disable;
+			};
+		};
+	};
+
 	i2s0_sck {
 		i2s0_sck_sleep: i2s0_sck_sleep {
 			mux {
@@ -1833,7 +1939,8 @@
 				pins = "gpio0";
 				drive-strength = <2>;
 				bias-pull-up;
-				qcom,i2c_pull;
+				//qcom,i2c_pull;
+				qcom,apps;
 			};
 		};
 
@@ -1847,7 +1954,8 @@
 				pins = "gpio1";
 				drive-strength = <2>;
 				bias-pull-up;
-				qcom,i2c_pull;
+				//qcom,i2c_pull;
+				qcom,apps;
 			};
 		};
 
@@ -1860,6 +1968,7 @@
 			config {
 				pins = "gpio0", "gpio1";
 				drive-strength = <2>;
+				qcom,remote;
 			};
 		};
 	};
@@ -2015,7 +2124,7 @@
 				pins = "gpio4";
 				drive-strength = <2>;
 				bias-pull-up;
-				qcom,i2c_pull;
+				//qcom,i2c_pull;
 				qcom,apps;
 			};
 		};
@@ -2030,7 +2139,7 @@
 				pins = "gpio5";
 				drive-strength = <2>;
 				bias-pull-up;
-				qcom,i2c_pull;
+				//qcom,i2c_pull;
 				qcom,apps;
 			};
 		};
@@ -2541,6 +2650,74 @@
 		};
 	};
 
+	qupv3_se11_2uart_pins: qupv3_se11_2uart_pins {
+		qupv3_se11_default_tx: qupv3_se11_default_tx {
+			mux {
+				pins = "gpio14";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio14";
+				drive-strength = <2>;
+				bias-pull-down;
+			};
+		};
+
+		qupv3_se11_default_rx: qupv3_se11_default_rx {
+			mux {
+				pins = "gpio15";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio15";
+				drive-strength = <2>;
+				bias-pull-down;
+			};
+		};
+
+		qupv3_se11_tx: qupv3_se11_tx {
+			mux {
+				pins = "gpio14";
+				function = "qup2_se3_l2";
+			};
+
+			config {
+				pins = "gpio14";
+				drive-strength = <2>;
+				bias-pull-up;
+			};
+		};
+
+		qupv3_se11_rx_active: qupv3_se11_rx_active {
+			mux {
+				pins = "gpio15";
+				function = "qup2_se3_l3";
+			};
+
+			config {
+				pins = "gpio15";
+				drive-strength = <2>;
+				bias-disable;
+			};
+		};
+
+		/* RX to be in gpio mode for sleep config */
+		qupv3_se11_rx_wake: qupv3_se11_rx_wake {
+			mux {
+				pins = "gpio15";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio15";
+				drive-strength = <2>;
+				bias-disable;
+			};
+		};
+	};
+
 	qupv3_se12_i2c_pins: qupv3_se12_i2c_pins {
 		qupv3_se12_i2c_sda_active: qupv3_se12_i2c_sda_active {
 			mux {
@@ -2638,14 +2815,22 @@
 
 		qupv3_se12_spi_sleep: qupv3_se12_spi_sleep {
 			mux {
+				/*#ifdef OPLUS_FEATURE_SENSOR_IR */
+				/*
 				pins = "gpio16", "gpio17",
 					"gpio18", "gpio19";
+				*/
+				pins = "gpio17";
 				function = "gpio";
 			};
 
 			config {
+				/*#ifdef OPLUS_FEATURE_SENSOR_IR */
+				/*
 				pins = "gpio16", "gpio17",
 					"gpio18", "gpio19";
+				*/
+				pins = "gpio17";
 				drive-strength = <2>;
 				bias-disable;
 			};

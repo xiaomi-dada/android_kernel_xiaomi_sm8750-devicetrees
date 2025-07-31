@@ -16,15 +16,15 @@
 		label = "gpio-keys";
 
 		pinctrl-names = "default";
-		pinctrl-0 = <&key_vol_up_default>;
+		pinctrl-0 = <&key_vol_down_default>;
 
-		vol_up {
-			label = "volume_up";
+		vol_down {
+			label = "volume_down";
 			gpios = <&pm8550_gpios 6 GPIO_ACTIVE_LOW>;
 			linux,input-type = <1>;
-			linux,code = <KEY_VOLUMEUP>;
+			linux,code = <KEY_VOLUMEDOWN>;
 			gpio-key,wakeup;
-			debounce-interval = <15>;
+			debounce-interval = <32>;
 			linux,can-disable;
 		};
 	};
@@ -264,10 +264,14 @@
 };
 
 &sdhc_2 {
-	status = "ok";
+// #ifdef OPLUS_SENSOR_FEATURE
+	status = "disabled";
+// #else
+/*	status = "ok";
 	vdd-supply = <&pm_humu_l9>;
 	qcom,vdd-voltage-level = <2950000 2960000>;
-	qcom,vdd-current-level = <0 800000>;
+	qcom,vdd-current-level = <0 800000>; */
+// #endif
 
 	vdd-io-supply = <&pm_humu_l8>;
 	qcom,vdd-io-voltage-level = <1800000 2960000>;
@@ -292,16 +296,18 @@
 	qcom,external-fb-clk;
 };
 
-&pmih010x_eusb2_repeater {
-	qcom,param-override-seq =
-		/* <value reg_offset> */
-		/* Adjust HS trasmit amplitude */
-		<0xa 0x51
-		/* Squelch detection threshold */
-		 0x4 0x54
-		/* Tx pre-emphasis tuning */
-		 0x3 0x57>;
-};
+// #ifndef OPLUS_FEATURE_CHG_BASIC
+//&pmih010x_eusb2_repeater {
+//	qcom,param-override-seq =
+//		/* <value reg_offset> */
+//		/* Adjust HS trasmit amplitude */
+//		<0xa 0x51
+//		/* Squelch detection threshold */
+//		 0x4 0x54
+//		/* Tx pre-emphasis tuning */
+//		 0x3 0x57>;
+//};
+// #endif
 
 &eusb2_phy0 {
 	dummy-supply = <&pmih010x_eusb2_repeater>;
@@ -312,7 +318,11 @@
 	#address-cells = <1>;
 	#size-cells = <0>;
 
-	status = "ok";
+// #ifdef OPLUS_TP_FEATURE
+	status = "disabled";
+// #else
+	/* status = "ok"; */
+// #endif
 	qcom,touch-active = "st,fts";
 
 	st_fts@49 {

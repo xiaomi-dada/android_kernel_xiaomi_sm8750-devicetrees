@@ -35,7 +35,7 @@
 			#interrupt-cells = <2>;
 		};
 
-		led-controller {
+		pmxr2230_led_controller: led-controller {
 			compatible = "qcom,pm8350c-pwm";
 			#address-cells = <1>;
 			#size-cells = <0>;
@@ -60,6 +60,15 @@
 				color = <LED_COLOR_ID_BLUE>;
 				label = "blue";
 			};
+		};
+
+		pmxr2230_pwm_2: pwms@eb00 {
+			compatible = "qcom,pwm-lpg";
+			reg = <0xeb00>;
+			reg-names = "lpg-base";
+			#pwm-cells = <2>;
+			qcom,num-lpg-channels = <1>;
+			status = "disabled";
 		};
 
 		pmxr2230_flash: qcom,flash_led@ee00 {

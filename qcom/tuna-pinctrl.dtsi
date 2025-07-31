@@ -1448,14 +1448,22 @@
 
 		qupv3_se11_spi_sleep: qupv3_se11_spi_sleep {
 			mux {
+				/*#ifdef OPLUS_FEATURE_SENSOR_IR */
+				/*
 				pins = "gpio36", "gpio37",
 					"gpio38", "gpio39";
+				*/
+				pins = "gpio37";
 				function = "gpio";
 			};
 
 			config {
+				/*#ifdef OPLUS_FEATURE_SENSOR_IR */
+				/*
 				pins = "gpio36", "gpio37",
 					"gpio38", "gpio39";
+				*/
+				pins = "gpio37";
 				drive-strength = <2>;
 				bias-disable;
 			};

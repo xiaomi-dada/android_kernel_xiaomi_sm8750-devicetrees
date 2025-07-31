@@ -85,7 +85,11 @@
 };
 
 &pmk8550_vadc {
+/*#ifndef OPLUS_FEATURE_CHG_BASIC
 	pinctrl-0 = <&sys_therm_7_gpio6_default &sys_therm_6_gpio7_default>;
+else*/
+	pinctrl-0 = <&sys_therm_6_gpio7_default>;
+/*#endif*/
 	pinctrl-names = "default";
 
 	/* PM7550BA Channel nodes */
@@ -127,7 +131,7 @@
 		reg = <PM7550BA_ADC5_GEN3_ICHG_FB>;
 		label = "pm7550ba_ichg_fb";
 	};
-
+/*#ifndef OPLUS_FEATURE_CHG_BASIC
 	pm7550ba_sys_therm_7 {
 		reg = <PM7550BA_ADC5_GEN3_AMUX_THM6_GPIO6_100K_PU>;
 		label = "pm7550ba_sys_therm_7";
@@ -136,7 +140,7 @@
 		qcom,hw-settle-time = <200>;
 		qcom,pre-scaling = <1 1>;
 	};
-
+#endif*/
 	pm7550ba_sys_therm_8 {
 		reg = <PM7550BA_ADC5_GEN3_AMUX_THM4_USB_THERM_100K_PU>;
 		label = "pm7550ba_sys_therm_8";
@@ -175,7 +179,7 @@
 	qcom,thermal-mitigation-step = <500000>;
 	#cooling-cells = <2>;
 };
-
+/*#ifndef OPLUS_FEATURE_CHG_BASIC
 &pm7550ba_gpios {
 	sys_therm_7_gpio6 {
 		sys_therm_7_gpio6_default: sys_therm_7_gpio6_default {
@@ -184,7 +188,7 @@
 		};
 	};
 };
-
+#endif*/
 &thermal_zones {
 	sys-therm-7 {
 		polling-delay-passive = <0>;
