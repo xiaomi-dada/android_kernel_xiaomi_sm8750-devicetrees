@@ -54,20 +54,31 @@
 
 &spf_core_platform {
 
+	// Removed changes to share IOVA address with CNSS
+	msm_audio_ion_iommu_partition: msm_audio_ion_iommu_partition {
+		iommu-addresses = <&msm_audio_ion 0x0 0x10000000>,
+			<&msm_audio_ion 0x20000000 0xE0000000>;
+	};
+
 	msm_audio_ion: qcom,msm-audio-ion {
 		compatible = "qcom,msm-audio-ion";
 		qcom,smmu-version = <2>;
 		qcom,smmu-enabled;
 		iommus = <&apps_smmu 0x1001 0x0080>, <&apps_smmu 0x1041 0x20>;
-		memory-region = <&audio_cnss_resv_region>;
-		qcom,iommu-group = <&cnss_audio_iommu_group0>;
+		// Removed changes to share IOVA address with CNSS
+		// memory-region = <&audio_cnss_resv_region>;
+		// qcom,iommu-group = <&cnss_audio_iommu_group0>;
+		memory-region = <&msm_audio_ion_iommu_partition>;
 		qcom,smmu-sid-mask = /bits/ 64 <0xf>;
 		dma-coherent;
 
+		// Removed changes to share IOVA address with CNSS
+		/*
 		audio_cnss_resv_region: audio_cnss_resv_region {
 			iommu-addresses = <&msm_audio_ion 0x00000000 0x18000000>,
 				<&msm_audio_ion 0xb0000000 0x50000000>;
 		};
+		*/
 	};
 
 	msm_audio_ion_cma: qcom,msm-audio-ion-cma {
