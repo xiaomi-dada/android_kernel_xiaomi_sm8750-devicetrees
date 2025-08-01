@@ -18,7 +18,7 @@
 			pins = "gpio113";
 			bias-pull-up; /* PULL UP*/
 			drive-strength = <2>; /* 2 MA */
-			qcom,i2c_pull;
+			// qcom,i2c_pull;
 		};
 	};
 
@@ -47,7 +47,7 @@
 			pins = "gpio114";
 			bias-pull-up; /* PULL UP*/
 			drive-strength = <2>; /* 2 MA */
-			qcom,i2c_pull;
+			// qcom,i2c_pull;
 		};
 	};
 
@@ -76,7 +76,7 @@
 			pins = "gpio115";
 			bias-pull-up; /* PULL UP*/
 			drive-strength = <2>; /* 2 MA */
-			qcom,i2c_pull;
+			// qcom,i2c_pull;
 		};
 	};
 
@@ -105,7 +105,7 @@
 			pins = "gpio116";
 			bias-pull-up; /* PULL UP*/
 			drive-strength = <2>; /* 2 MA */
-			qcom,i2c_pull;
+			// qcom,i2c_pull;
 		};
 	};
 
@@ -134,7 +134,7 @@
 			pins = "gpio117";
 			bias-pull-up; /* PULL UP*/
 			drive-strength = <2>; /* 2 MA */
-			qcom,i2c_pull;
+			// qcom,i2c_pull;
 		};
 	};
 
@@ -163,7 +163,7 @@
 			pins = "gpio118";
 			bias-pull-up; /* PULL UP*/
 			drive-strength = <2>; /* 2 MA */
-			qcom,i2c_pull;
+			// qcom,i2c_pull;
 		};
 	};
 
@@ -304,7 +304,7 @@
 			pins = "gpio119";
 			bias-pull-up; /* PULL UP*/
 			drive-strength = <2>; /* 2 MA */
-			qcom,i2c_pull;
+			//qcom,i2c_pull;
 		};
 	};
 
@@ -333,7 +333,7 @@
 			pins = "gpio120";
 			bias-pull-up; /* PULL UP*/
 			drive-strength = <2>; /* 2 MA */
-			qcom,i2c_pull;
+			//qcom,i2c_pull;
 		};
 	};
 
