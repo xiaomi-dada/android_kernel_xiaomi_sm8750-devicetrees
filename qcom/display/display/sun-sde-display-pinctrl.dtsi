@@ -116,7 +116,7 @@
 		sde_esync0_active: sde_esync0_active {
 			mux {
 				pins = "gpio88";
-				function = "mdp_esync0_out";
+				function = "gpio";
 			};
 
 			config {
@@ -129,7 +129,7 @@
 		sde_esync0_suspend: sde_esync0_suspend {
 			mux {
 				pins = "gpio88";
-				function = "mdp_esync0_out";
+				function = "gpio";
 			};
 
 			config {

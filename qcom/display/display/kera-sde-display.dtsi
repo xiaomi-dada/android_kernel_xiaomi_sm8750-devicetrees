@@ -52,9 +52,9 @@
 		      "pll_byte_clk1", "pll_dsi_clk1",
 		      "mdp_core_clk";
 
-	vddio-supply = <&L8B>;
-	vci-supply = <&L19B>;
+	vddio-supply = <&L15B>;
 	vdd-supply = <&L1G>;
+	vci-supply = <&L19B>;
 };
 
 &sde_dsi1 {

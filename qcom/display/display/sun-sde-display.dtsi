@@ -7,6 +7,8 @@
 #include "sun-sde-display-common.dtsi"
 #include <dt-bindings/clock/qcom,dispcc-sun.h>
 
+//#ifdef OPLUS_FEATURE_ESIM
+/*
 &pm8550_gpios {
 	display_panel_avdd_default: display_panel_avdd_default {
 		pins = "gpio11";
@@ -18,6 +20,8 @@
 		qcom,drive-strength = <3>;
 	};
 };
+*/
+//#endif /*OPLUS_FEATURE_ESIM*/
 
 &soc {
 	sde_wb1: qcom,wb-display@1 {
@@ -36,7 +40,8 @@
 		clock-names = "mdp_core_clk";
 	};
 
-
+//#ifdef OPLUS_FEATURE_ESIM
+/*
 	display_panel_avdd: display_gpio_regulator@1 {
 		compatible = "qti-regulator-fixed";
 		regulator-name = "display_panel_avdd";
@@ -50,6 +55,8 @@
 		qcom,proxy-consumer-enable;
 		pinctrl-names = "default";
 	};
+*/
+//#endif /*OPLUS_FEATURE_ESIM*/
 
 	disp_rdump_memory: disp_rdump_region@0xd5500000 {
 		reg = <0xfc800000 0x00800000>;

@@ -250,6 +250,18 @@
 	qcom,platform-bklight-en-gpio = <&pmxr2230_gpios 2 0>;
 };
 
+&dsi_panel_boe_nt37706a_fhd_plus_144hz_vid {
+	qcom,panel-supply-entries = <&oplus_dsi_panel_custom_pwr_supply>;
+	qcom,panel-sec-supply-entries = <&oplus_dsi_panel_custom_pwr_supply>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
+	qcom,mdss-dsi-sec-bl-pmic-control-type = "bl_ctrl_dcs";
+	qcom,mdss-dsi-bl-min-level = <10>;
+	qcom,mdss-dsi-bl-max-level = <4095>;
+	qcom,mdss-brightness-max-level = <8191>;
+	qcom,mdss-dsi-bl-inverted-dbv;
+	qcom,platform-reset-gpio = <&tlmm 12 0>;
+	qcom,platform-sec-reset-gpio = <&tlmm 127 0>;
+};
 &dsi_sim_cmd {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply_sim>;
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
