@@ -6,17 +6,17 @@ dtbo-y += nxp/sun-nfc.dtbo \
           nxp/tuna-nfc.dtbo \
           nxp/kera-nfc.dtbo \
 
-dtbo-y += st/sun-nfc.dtbo \
-          st/sun-nfc-mtp.dtbo \
-          st/sun-nfc-cdp.dtbo \
-          st/sun-nfc-qrd-sku1.dtbo \
-          st/sun-nfc-qrd-sku1-v8.dtbo \
-          st/sun-nfc-qrd-sku2-v8.dtbo \
-          st/sun-nfc-atp.dtbo \
-          st/sun-mtp-kiwi-v8.dtbo \
-          st/sun-nfc-rcm.dtbo \
-          st/tuna-nfc.dtbo \
-          st/kera-nfc.dtbo
+//dtbo-y += st/sun-nfc.dtbo \
+//        st/sun-nfc-mtp.dtbo \
+//          st/sun-nfc-cdp.dtbo \
+ //         st/sun-nfc-qrd-sku1.dtbo \
+//          st/sun-nfc-qrd-sku1-v8.dtbo \
+//          st/sun-nfc-qrd-sku2-v8.dtbo \
+ //         st/sun-nfc-atp.dtbo \
+//          st/sun-mtp-kiwi-v8.dtbo \
+ //         st/sun-nfc-rcm.dtbo \
+//          st/tuna-nfc.dtbo \
+ //         st/kera-nfc.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_PARROT),y)
