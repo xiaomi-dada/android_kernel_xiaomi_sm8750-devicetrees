@@ -6,7 +6,10 @@
 
 #include "sun-peach-bt-v8.dtsi"
 
-/delete-node/ &fm_rtc6226;
+//#ifndef OPLUS_BUG_COMPATIBILITY
+//remove fm gpio config
+///delete-node/ &fm_rtc6226;
+//#endif /* OPLUS_BUG_COMPATIBILITY */
 
 &bluetooth {
     /delete-property/ qcom,bt-ant-ldo-supply;

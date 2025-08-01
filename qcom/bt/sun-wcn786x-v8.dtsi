@@ -57,7 +57,9 @@
 
 			qcom,bt-vdd18-aon-supply  = <&L3F>;   /* VDD1P8_AON */
 			qcom,bt-vdd12-io-supply   = <&L2F>;   /* VDD1P2_IO */
-			qcom,bt-ant-ldo-supply    = <&L6K>;   /* AV91C_VDD Extractor */
+//#ifndef OPLUS_BUG_STABILITY
+			//qcom,bt-ant-ldo-supply    = <&L6K>;   /* AV91C_VDD Extractor */
+//#endif /* OPLUS_BUG_STABILITY */
 			/* This buck is added for HW WAR */
 			qcom,bt-vdd-dig-supply    = <&S4D>;   /* BT CX_MX LDO */
 			qcom,bt-vdd-aon-supply    = <&S5F>;   /* RFA_CMN/AON */
@@ -93,20 +95,23 @@
 	};
 };
 
+//#ifndef OPLUS_BUG_COMPATIBILITY
+//remove fm gpio config
 // FM changes
-&qupv3_se5_i2c {
-    status = "ok";
-	nq@64 {
-		compatible = "rtc6226";
-		reg = <0x64>;
-		fmint-gpio = <&tlmm 84 0>;
-		vdd-supply = <&L16B>;
-		rtc6226,vdd-supply-voltage = <2800000 2800000>;
-		rtc6226,vdd-load = <15000>;
-		vio-supply = <&L15B>;
-		rtc6226,vio-supply-voltage = <1800000 1800000>;
-	};
-};
+//&qupv3_se5_i2c {
+//    status = "ok";
+//	nq@64 {
+//		compatible = "rtc6226";
+//		reg = <0x64>;
+//		fmint-gpio = <&tlmm 84 0>;
+//		vdd-supply = <&L16B>;
+//		rtc6226,vdd-supply-voltage = <2800000 2800000>;
+//		rtc6226,vdd-load = <15000>;
+//		vio-supply = <&L15B>;
+//		rtc6226,vio-supply-voltage = <1800000 1800000>;
+//	};
+//};
+//#endif /* OPLUS_BUG_COMPATIBILITY */
 
 //uart instance
 &qupv3_se14_4uart {
