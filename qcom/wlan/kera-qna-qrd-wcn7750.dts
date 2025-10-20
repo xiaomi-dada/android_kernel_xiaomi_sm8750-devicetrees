@@ -10,8 +10,7 @@
 
 / {
 	model = "Qualcomm Technologies, Inc. Kera QRD";
-	compatible = "qcom,kera-qrd", "qcom,kera", "qcom,qrd", "qcom,kerap-qmb";
-	qcom,msm-id = <686 0x10000>, <659 0x10000>, <720 0x10000>, <731 0x10000>,
-			<732 0x10000>;
+	compatible = "qcom,kerap-qna";
+	qcom,msm-id = <721 0x10000>;
 	qcom,board-id = <0x01000B 0>, <0x02000B 0>, <0x03000B 0>;
 };

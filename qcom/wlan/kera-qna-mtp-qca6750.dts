@@ -6,12 +6,11 @@
 /dts-v1/;
 /plugin/;
 
-#include "kera-qca6750.dtsi"
+#include "kera-qna-qca6750.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. Kera MTP";
-	compatible = "qcom,kera-mtp", "qcom,kera", "qcom,mtp", "qcom,kerap-qmb";
-	qcom,msm-id = <686 0x10000>, <659 0x10000>, <720 0x10000>, <731 0x10000>,
-			<732 0x10000>;
+	compatible = "qcom,kerap-qna";
+	qcom,msm-id = <721 0x10000>;
 	qcom,board-id = <0x010008 0>, <0x020008 0>, <0x030008 0>;
 };
