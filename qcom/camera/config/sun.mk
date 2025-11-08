@@ -22,4 +22,3 @@ dtbo-$(CONFIG_ARCH_SUN)   += oplus/hummer-camera-overlay-evb.dtbo \
 dtbo-$(CONFIG_ARCH_SUN)   += oplus/pagani-camera-overlay-T0.dtbo \
 
 dtbo-$(CONFIG_ARCH_SUN)   += oplus/paganiIn-camera-overlay-T0.dtbo \
-
