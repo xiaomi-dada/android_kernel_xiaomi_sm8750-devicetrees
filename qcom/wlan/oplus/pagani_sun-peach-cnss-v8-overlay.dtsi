@@ -11,4 +11,8 @@
 	vdd-wlan-ant-share-supply = <&L8B>;
 	qcom,vdd-wlan-ant-share-config = <2800000 2800000 0 0 1>;
 	//#endif /* OPLUS_FEATURE_WIFI_POWER */
+
+	nvmem-cells = <0>;
+	nvmem-cell-names = "";
+	wcal-pbs-supply = <0>;
 };
