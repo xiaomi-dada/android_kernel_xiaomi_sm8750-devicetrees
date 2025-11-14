@@ -171,7 +171,3 @@
 &qdss_apps_mem {
     status = "disabled";
 };
-
-&adspslpi_mem {
-	reg = <0x0 0x9ee00000 0x0 0x5080000>;
-};
