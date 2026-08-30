@@ -436,7 +436,13 @@ endif
 
 endif
 
-always-y        := $(dtb-y)
+# Xiaomi dada device overlay, reconstructed from the dtbo the device ships.
+# Declared here rather than in SUN_BOARDS because that whole block sits
+# inside 'ifneq (,)', which is always false: QCOM ships the base DTBs only
+# and lets the bootloader apply overlays from dtbo.img at runtime.
+dtbo-y          += dada-overlay.dtbo
+
+always-y        := $(dtb-y) $(dtbo-y)
 subdir-y        := $(dts-dirs)
 subdir-y        += audio bt camera data display dsp eSE eva fingerprint graphics mm mmrm nfc synx video wlan
 clean-files     := *.dtb *.dtbo
