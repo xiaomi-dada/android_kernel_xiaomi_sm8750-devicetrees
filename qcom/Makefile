@@ -447,7 +447,8 @@ endif
 # the shipped one.  Building dtb.img rather than shipping it means turning on
 # BOARD_USES_QCOM_MERGE_DTBS_SCRIPT in the device tree, which runs exactly
 # that merge.  These four have to exist before that can work.
-dtb-y           += sun-tp.dtb sun-tp-v2.dtb sunp.dtb sunp-tp-v2.dtb
+dtb-y           += sun.dtb sun-v2.dtb sun-tp.dtb sun-tp-v2.dtb \
+                   sunp.dtb sunp-v2.dtb sunp-tp.dtb sunp-tp-v2.dtb
 dtbo-y          += dada-overlay.dtbo
 
 always-y        := $(dtb-y) $(dtbo-y)
