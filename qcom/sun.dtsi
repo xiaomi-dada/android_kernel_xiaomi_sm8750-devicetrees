@@ -3006,6 +3006,16 @@
 			compatible = "qcom,battery-charger";
 		};
 
+		/*
+		 * The charging stack's own channel to the ADSP, alongside the
+		 * battery charger's.  Left off here; the device tree that wants
+		 * it turns it on.
+		 */
+		mca_adsp_glink: mca,adsp_glink {
+			compatible = "mca,adsp_glink";
+			status = "disabled";
+		};
+
 		ucsi: qcom,ucsi {
 			compatible = "qcom,ucsi-glink";
 		};
